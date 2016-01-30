@@ -15,12 +15,18 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from . import views
+from .views import (
+    post_create,
+    post_detail,
+    post_list,
+    post_update,
+    post_delete,
+)
 
 urlpatterns = [
-    url(r'^create/$', views.post_create),
-    url(r'^list/$', views.post_list),
-    url(r'^detail/$', views.post_detail),
-    url(r'^update$', views.post_update),
-    url(r'^delete$', views.post_delete),
+    url(r'^create/$', post_create),
+    url(r'^list/$', post_list),
+    url(r'^detail/$', post_detail),
+    url(r'^update$', post_update),
+    url(r'^delete$', post_delete),
 ]
