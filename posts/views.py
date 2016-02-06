@@ -12,12 +12,11 @@ def post_create(request):
     """
     if form.is_valid():
         instance = form.save(commit=False)
-        print(form.cleaned_date.get("title"))
         instance.save()
         messages.success(request, "Function was successful.")
         return HttpResponseRedirect(instance.get_absolute_url())
-    else:
-        messages.error(request, "Function was unsuccessful.")
+    # else:
+    #     messages.error(request, "Function was unsuccessful.")
     # if request.method == "POST":
     #     print(request.POST.get("content"))
     #     print(request.POST.get("title"))
@@ -47,7 +46,7 @@ def post_list(request):
     # context_data = {
     #     "title": "List"
     # }
-    return render(request, "index.html", context)
+    return render(request, "post_list.html", context)
 
 def post_update(request, id=None):
     instance = get_object_or_404(Post, id=id)

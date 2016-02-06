@@ -1,26 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-
-
-<body>
-
-    {%  if messages %}
-        <ul class="messages">
-        {%  for message in messages %}
-            <li
-                {%  if message.tags %}
-                     class="{{  message.tags }}"
-                {%  endif %}>
-                    {%  if "html_safe" in message.tags %}
-                        {{ message|safe }}
-                    {%  else %}
-                        {{ message }}
-                    {% endif %}
-            </li>
-        {% endfor %}
-
-        </ul>
-    {% endif %}
+{%  extends "base.html" %}
+        {%  block head_title %}
+            {{ instance_list.title}} | {{ block.super }}
+        {% endblock head_title %}
+{% block content %}
     <h1>Title of blog :: {{ title }} </h1>
 
         {{ instance_list.title }}<br/>
@@ -28,6 +10,4 @@
         {{ instance_list.timestamp }}<br/>
         {{ instance_list.updated }}<br/>
         {{ instance_list.id }}<br/>
-
-</body>
-</html>
+{% endblock content %}
