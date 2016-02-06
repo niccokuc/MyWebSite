@@ -11,6 +11,6 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
-    # def get_absolute_url(self):
-    #     #return reverse("detail", kwargs={"id": self.id})
+    def get_absolute_url(self):
+         return reverse("posts:detail", kwargs={"id": self.id})
     #     return "posts/%s/" %(self.id)
